@@ -28,51 +28,61 @@ const Pathway = ({ data, width = 800, height = 500 }) => {
   const pathData = lineGenerator(data);
 
   return (
-    <svg width={width} height={height} style={{ border: "1px solid black" }}>
-      {/* Axes */}
-      <line
-        x1="50"
-        y1={height - 50}
-        x2={width - 50}
-        y2={height - 50}
-        stroke="black"
-      />
-      <line x1="50" y1={50} x2="50" y2={height - 50} stroke="black" />
-
-      {/* X-Axis Ticks */}
-      {xTicks.map((tick, i) => (
-        <g key={i} transform={`translate(${xScale(tick)}, ${height - 50})`}>
-          <line y2="5" stroke="black" /> {/* Tick mark */}
-          <text y="15" textAnchor="middle" fontSize="10" fill="black">
-            {tick}
-          </text>
-        </g>
-      ))}
-
-      {/* Y-Axis Ticks */}
-      {yTicks.map((tick, i) => (
-        <g key={i} transform={`translate(50, ${yScale(tick)})`}>
-          <line x2="-5" stroke="black" /> {/* Tick mark */}
-          <text x="-10" textAnchor="end" fontSize="10" fill="black" dy="0.3em">
-            {tick}
-          </text>
-        </g>
-      ))}
-
-      {/* Path */}
-      <path d={pathData} fill="none" stroke="blue" strokeWidth={2} />
-
-      {/* Points */}
-      {data.map((point, i) => (
-        <circle
-          key={i}
-          cx={xScale(point.x)}
-          cy={yScale(point.y)}
-          r={5}
-          fill="red"
+    <>
+      <h3>D3js Example:</h3>
+      <p>Link to Documentation <a href="https://d3js.org/" target="_blank">D3js</a></p>
+      <svg width={width} height={height} style={{ border: "1px solid black" }}>
+        {/* Axes */}
+        <line
+          x1="50"
+          y1={height - 50}
+          x2={width - 50}
+          y2={height - 50}
+          stroke="black"
         />
-      ))}
-    </svg>
+        <line x1="50" y1={50} x2="50" y2={height - 50} stroke="black" />
+
+        {/* X-Axis Ticks */}
+        {xTicks.map((tick, i) => (
+          <g key={i} transform={`translate(${xScale(tick)}, ${height - 50})`}>
+            <line y2="5" stroke="black" /> {/* Tick mark */}
+            <text y="15" textAnchor="middle" fontSize="10" fill="black">
+              {tick}
+            </text>
+          </g>
+        ))}
+
+        {/* Y-Axis Ticks */}
+        {yTicks.map((tick, i) => (
+          <g key={i} transform={`translate(50, ${yScale(tick)})`}>
+            <line x2="-5" stroke="black" /> {/* Tick mark */}
+            <text
+              x="-10"
+              textAnchor="end"
+              fontSize="10"
+              fill="black"
+              dy="0.3em"
+            >
+              {tick}
+            </text>
+          </g>
+        ))}
+
+        {/* Path */}
+        <path d={pathData} fill="none" stroke="blue" strokeWidth={2} />
+
+        {/* Points */}
+        {data.map((point, i) => (
+          <circle
+            key={i}
+            cx={xScale(point.x)}
+            cy={yScale(point.y)}
+            r={5}
+            fill="red"
+          />
+        ))}
+      </svg>
+    </>
   );
 };
 
