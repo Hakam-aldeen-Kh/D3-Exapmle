@@ -1,5 +1,8 @@
 import LinePlot from "./LinePlot";
 import LinePlot1 from "./LinePlot1";
+import LinePlot2 from "./LinePlot2";
+// Nivo data
+import data3 from "./assets/data.json";
 
 function App() {
   // D3js data
@@ -15,7 +18,7 @@ function App() {
     { x: 100, y: 15 },
   ];
 
-  
+  //  recharts data
   const pointData = [
     { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
     { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
@@ -30,8 +33,10 @@ function App() {
     <>
       {/* D3js example */}
       <LinePlot data={pathwayData} />
-
-      <LinePlot1 data={pointData}/>
+      {/* recharts example */}
+      <LinePlot1 data={pointData} />
+      {/* Nivo example */}
+      <LinePlot2 data={data3} />
     </>
   );
 }
