@@ -6,7 +6,7 @@ const LinePlot2 = ({ data }) => {
       <h3 style={{ marginTop: "100px" }}>Nivo Example:</h3>
       <p>
         Link to Documentation{" "}
-        <a href="https://d3js.org/" target="_blank">
+        <a href="https://nivo.rocks/" target="_blank">
           Nivo
         </a>
       </p>
