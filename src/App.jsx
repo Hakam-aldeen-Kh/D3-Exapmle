@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import LinePlot from "./LinePlot";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const pathwayData = [
+    { x: 0, y: 0 },
+    { x: 10, y: 20 },
+    { x: 20, y: 15 },
+    { x: 30, y: 25 },
+    { x: 40, y: 10 },
+    { x: 50, y: 25 },
+    { x: 60, y: 20 },
+    { x: 75, y: 15 },
+    { x: 100, y: 15 },
+  ];
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LinePlot data={pathwayData} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
